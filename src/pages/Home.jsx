@@ -1,5 +1,5 @@
-import Navbar from '../features/Navbar/Navbar'
-import ProductList from '../features/ProductList/ProductList'
+import Navbar from '../features/navbar/Navbar'
+import ProductList from '../features/product-list/ProductList'
 function Home() {
     return (
         <>
