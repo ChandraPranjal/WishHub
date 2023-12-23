@@ -4,7 +4,8 @@ import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
 import Home from './pages/Home'
 import CartPage from './pages/CartPage'
-
+import CheckoutPage from './pages/CheckoutPage'
+import ProductDetailPage from './pages/ProductDetailPage'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -13,6 +14,9 @@ const router = createBrowserRouter(
       <Route path = 'login' element = {<LoginPage/>}></Route>
       <Route path = 'signup' element = {<SignUpPage/>}></Route>
       <Route path = 'cart' element = {<CartPage/>}></Route>
+      <Route path = 'checkout' element = {<CheckoutPage/>}></Route>
+      <Route path ='productdetails' element = {<ProductDetailPage/>}></Route>
+
 
     </Route>
 

@@ -1,10 +1,12 @@
 //Added quantity state mySelf from tailwind template
+//Made a component CardItem also
 
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
-
+import CardItem from './CartItem'
+import {useLocation} from 'react-router-dom'
 const products = [
   {
     id: 1,
@@ -30,18 +32,10 @@ const products = [
   // More products...
 ]
 
-export default function Example() {
+export default function Cart() {
   const [open, setOpen] = useState(true)
-  const [quantity, setQuantity] = useState(1);
-  const quantityHandler = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (e.target.name === 'increment')
-      setQuantity(quantity + 1);
-    else
-      setQuantity((quantity - 1) > 0 ? (quantity - 1) : 1);
-  }
+  const location = useLocation()
+  const { pathname } = location
 
   return (
 
@@ -68,41 +62,7 @@ export default function Example() {
             <ul role="list" className="-my-6 divide-y divide-gray-200">
               {products.map((product) => (
                 <li key={product.id} className="flex py-6">
-                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                    <img
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-
-                  <div className="ml-4 flex flex-1 flex-col">
-                    <div>
-                      <div className="flex justify-between text-base font-medium text-gray-900">
-                        <h3>
-                          <a href={product.href}>{product.name}</a>
-                        </h3>
-                        <p className="ml-4">{product.price}</p>
-                      </div>
-                      <p className="mt-1 text-sm text-gray-500">{product.color}</p>
-                    </div>
-                    <div className="flex flex-1 items-end justify-between text-sm">
-                      <p className="text-gray-500">Qty {product.quantity}</p>
-                      <div className='text-xl font-bold'>
-                        <button name="increment" className='mx-2 text-xl border border-solid w-5  border-blue-800' onClick={quantityHandler} >+</button>
-                        {`Qty : ${quantity} `}
-                        <button name="decrement" className='mx-2 text-xl font-bold border border-solid w-5 border-blue-800' onClick={quantityHandler}>-</button>
-                      </div>
-                      <div className="flex">
-                        <button
-                          type="button"
-                          className="font-medium text-indigo-600 hover:text-indigo-500"
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                  <CardItem product={product} />
                 </li>
               ))}
             </ul>
@@ -121,12 +81,12 @@ export default function Example() {
             href="#"
             className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
           >
-            Checkout
+            {pathname === '/checkout' ? "Pay and Order" : "Checkout"}
           </a>
         </div>
         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
           <p>
-            or 
+            or
             <button
               type="button"
               className="font-medium text-indigo-600 hover:text-indigo-500"
