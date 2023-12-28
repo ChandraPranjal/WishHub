@@ -10,15 +10,15 @@ export function fetchProductsByFilters(filter)
 {
     //filter = {"category":"smartphone"}
 
+    let query = 'http://localhost:8000/products?';
+    for(let key in filter)
+    {
+        query += `${key}=${filter[key]}&`; 
+    }
+    console.log("query is",query );
     return new Promise(async (resolve,reject)=>{
-        let query = 'http://localhost:8000/products?';
-        for(let key in filter)
-        {
-            query += `${key}=${filter[key]}&`; 
-        }
-        console.log("query is",query );
         const response = await fetch(query)
-        const data = response.json();
+        const data = await response.json();
         resolve({data});
     })
 }

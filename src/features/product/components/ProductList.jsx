@@ -18,11 +18,12 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAllProductsAsync,
-  fetchProductsByFilterAsync
+  fetchProductsByFilterAsync,
+  selectAllProducts,
 } from "../productSlice";
 
 const sortOptions = [
-  { name: "Best Rating", order_by: "rating", order: "asc", current: false },
+  { name: "Best Rating", order_by: "rating", order: "desc", current: false },
   {
     name: "Price: Low to High",
     order_by: "price",
@@ -143,37 +144,40 @@ function classNames(...classes) {
 }
 
 export default function ProductList() {
-  const state = useSelector((data) => data);
+  //   const state = useSelector((data) => data);
   // console.log(state.products.product);
-  const products = state.products.products;
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [filter, setFilter] = useState([]);
-
+  //   const products = state.products.products;
   const dispatch = useDispatch();
+  const products = useSelector(selectAllProducts);
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [filter, setFilter] = useState({});
+
 
   const filterHandler = (e, section, option) => {
-    // setCheckedOptions((prv) => [...prv, e.target.value]);
+
     const newFilter = { ...filter, [section.id]: option.label };
     setFilter(newFilter);
-    // console.log(checkedOptions);
+
+    dispatch(fetchProductsByFilterAsync(newFilter));
   };
 
   const sortHandler = (option) => {
     console.log(option);
     const order_by = option.order_by;
     const order = option.order;
-    console.log("Order in page",order);
-    const newFilter = {...filter ,_sort:`${order_by}`,_order:`${order}`}
-    setFilter(newFilter)
+    console.log("Order in page", order);
+    const newFilter = { ...filter, _sort: `${order_by}`, _order: `${order}` };
+    setFilter(newFilter);
+    dispatch(fetchProductsByFilterAsync(newFilter));
 
   };
+
 
   useEffect(() => {
     dispatch(fetchAllProductsAsync());
   }, [dispatch]);
-  useEffect(() => {
-    dispatch(fetchProductsByFilterAsync(filter));
-  }, [filter]);
+
+
   return (
     <div className="bg-white min-h-full">
       <div>
