@@ -11,9 +11,9 @@ export const fetchAllProductsAsync = createAsyncThunk(
 
 export const fetchProductsByFilterAsync = createAsyncThunk(
   "product/fetchProductByFilters",
-  async (filter) => {
-    console.log("Filter in slice", filter);
-    const response = await fetchProductsByFilters(filter);
+  async ({filter,sort}) => {
+
+    const response = await fetchProductsByFilters({filter,sort});
     return response.data;
   }
 );
@@ -30,7 +30,7 @@ export const productSlice = createSlice({
     });
     builder.addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
       (state.status = "loaded"),
-        (state.products = [...state.products, ...action.payload]);
+        (state.products = [...state.products, ...action.payload ]);
     });
     builder.addCase(fetchAllProductsAsync.rejected, (state, action) => {
       state.status = "rejected";
@@ -40,11 +40,11 @@ export const productSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
-      console.log(action.payload);
       (state.status = "loaded"), (state.products = action.payload);
     });
     builder.addCase(fetchProductsByFilterAsync.rejected, (state, action) => {
       state.status = "rejected";
+      console.log(action.payload);
     });
   },
 });

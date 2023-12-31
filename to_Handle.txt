@@ -1,0 +1,6 @@
+Multi Filter in Product List
+    -> Delete From Filter if unchecked
+    -> Make filter and array 
+    -> After UnCheck get new results , products of current category 
+
+Filter Popup in Mobile Mode

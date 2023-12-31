@@ -1,26 +1,18 @@
-const api = async () => {
-  const response = await fetch(" http://localhost:8000/products");
-  const data = await response.json();
+// const obj = {
+//   class: 12,
+// };
 
-  const set = new Set();
-  const uniqueLabels = new Set(); // To keep track of unique labels
-  data.map((product) => {
-    const label = product.brand;
+// if (obj["name"]) obj["name"].push("Rohan");
+// else {
+//   obj["name"] = ["Ok"];
+// }
+// if (obj["name"]) obj["name"].push("Rohan");
+// else {
+//   obj["name"] = ["Ok"];
+// }
 
-    // Check if the label is unique
-    if (!uniqueLabels.has(label)) {
-      uniqueLabels.add(label);
+// console.log(obj);
 
-      // Add the unique object to the set
-      set.add({
-        value: "New Arrivals",
-        label: label,
-        checked: false,
-      });
-    }
-  });
-
-  console.log(set);
-};
-
-api();
+const obj = {};
+if (Object.keys(obj).length === 0) console.log("No empty");
+else console.log("empty");
