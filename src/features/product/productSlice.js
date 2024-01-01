@@ -22,7 +22,7 @@ export const productSlice = createSlice({
   initialState: {
     products: [],
     status: "idle",
-    totalItems:0
+    totalItems: 0,
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllProductsAsync.pending, (state, action) => {
@@ -40,17 +40,12 @@ export const productSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
-      const {products,totalItems} = action.payload;
-      console.log("action payload",action.payload);
-      console.log(products);
-      console.log(totalItems);
-
+      const { products, totalItems } = action.payload;
       state.status = "loaded";
       state.products = products;
       state.totalItems = totalItems;
-
     });
-    
+
     builder.addCase(fetchProductsByFilterAsync.rejected, (state, action) => {
       state.status = "rejected";
       console.log(action.payload);
@@ -60,6 +55,5 @@ export const productSlice = createSlice({
 
 export const selectAllProducts = (state) => state.product.products;
 export const selectTotalItems = (state) => state.product.totalItems;
-
 
 export default productSlice.reducer;

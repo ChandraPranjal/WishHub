@@ -1,75 +1,20 @@
-const arr =  [
-    { value: "New Arrivals", label: "Apple", checked: false },
-    { value: "New Arrivals", label: "Samsung", checked: false },
-    { value: "New Arrivals", label: "OPPO", checked: false },
-    { value: "New Arrivals", label: "Huawei", checked: false },
-    { value: "New Arrivals", label: "Microsoft Surface", checked: false },
-    { value: "New Arrivals", label: "Infinix", checked: false },
-    { value: "New Arrivals", label: "HP Pavilion", checked: false },
-    {
-      value: "New Arrivals",
-      label: "Impression of Acqua Di Gio",
-      checked: false,
-    },
-    { value: "New Arrivals", label: "Royal_Mirage", checked: false },
-    {
-      value: "New Arrivals",
-      label: "Fog Scent Xpressio",
-      checked: false,
-    },
-    { value: "New Arrivals", label: "Al Munakh", checked: false },
-    { value: "New Arrivals", label: "Lord - Al-Rehab", checked: false },
-    { value: "New Arrivals", label: "L'Oreal Paris", checked: false },
-    { value: "New Arrivals", label: "Hemani Tea", checked: false },
-    { value: "New Arrivals", label: "Dermive", checked: false },
-    { value: "New Arrivals", label: "ROREC White Rice", checked: false },
-    { value: "New Arrivals", label: "Fair & Clear", checked: false },
-    { value: "New Arrivals", label: "Saaf & Khaas", checked: false },
-    { value: "New Arrivals", label: "Bake Parlor Big", checked: false },
-    { value: "New Arrivals", label: "Baking Food Items", checked: false },
-    { value: "New Arrivals", label: "fauji", checked: false },
-    { value: "New Arrivals", label: "Dry Rose", checked: false },
-    { value: "New Arrivals", label: "Boho Decor", checked: false },
-    { value: "New Arrivals", label: "Flying Wooden", checked: false },
-    { value: "New Arrivals", label: "LED Lights", checked: false },
-    { value: "New Arrivals", label: "luxury palace", checked: false },
-    { value: "New Arrivals", label: "Golden", checked: false },
-    { value: "New Arrivals", label: "Furniture Bed Set", checked: false },
-    { value: "New Arrivals", label: "Ratttan Outdoor", checked: false },
-    { value: "New Arrivals", label: "Kitchen Shelf", checked: false },
-    { value: "New Arrivals", label: "Multi Purpose", checked: false },
-    { value: "New Arrivals", label: "AmnaMart", checked: false },
-    { value: "New Arrivals", label: "Professional Wear", checked: false },
-    { value: "New Arrivals", label: "Soft Cotton", checked: false },
-    { value: "New Arrivals", label: "Top Sweater", checked: false },
-    { value: "New Arrivals", label: "RED MICKY MOUSE..", checked: false },
-    { value: "New Arrivals", label: "Digital Printed", checked: false },
-    { value: "New Arrivals", label: "Ghazi Fabric", checked: false },
-    { value: "New Arrivals", label: "IELGY", checked: false },
-    { value: "New Arrivals", label: "IELGY fashion", checked: false },
-    { value: "New Arrivals", label: "Synthetic Leather", checked: false },
-    {
-      value: "New Arrivals",
-      label: "Sandals Flip Flops",
-      checked: false,
-    },
-    { value: "New Arrivals", label: "Maasai Sandals", checked: false },
-    { value: "New Arrivals", label: "Arrivals Genuine", checked: false },
-    { value: "New Arrivals", label: "Vintage Apparel", checked: false },
-    { value: "New Arrivals", label: "FREE FIRE", checked: false },
-    { value: "New Arrivals", label: "The Warehouse", checked: false },
-    { value: "New Arrivals", label: "Sneakers", checked: false },
-    { value: "New Arrivals", label: "Rubber", checked: false },
-    { value: "New Arrivals", label: "Naviforce", checked: false },
-    { value: "New Arrivals", label: "SKMEI 9117", checked: false },
-    { value: "New Arrivals", label: "Strap Skeleton", checked: false },
-    { value: "New Arrivals", label: "Stainless", checked: false },
-    { value: "New Arrivals", label: "Eastern Watches", checked: false },
-    { value: "New Arrivals", label: "Luxury Digital", checked: false },
-    { value: "New Arrivals", label: "Watch Pearls", checked: false },
-    { value: "New Arrivals", label: "Bracelet", checked: false },
-  ]
 
-  arr.map((ele)=>ele.value = ele.label)
+const filters = [
+  {
+    id: "category",
+    name: "Category",
+    // options: [{ value: "New Arrivals", label: "All", checked: true }],
+    options: [],
+  },
+  {
+    id: "brand",
+    name: "Brands",
+    // options: [{ value: "New Arrivals", label: "Apple", checked: false }],
+    options: [],
+  },
+];
+const arr = ["anr" , "jjd"];
+filters[0].options = arr;
 
-  console.log(arr);
+
+console.log(filters[0].options);
