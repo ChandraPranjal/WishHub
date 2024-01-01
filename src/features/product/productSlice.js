@@ -11,9 +11,8 @@ export const fetchAllProductsAsync = createAsyncThunk(
 
 export const fetchProductsByFilterAsync = createAsyncThunk(
   "product/fetchProductByFilters",
-  async ({filter,sort}) => {
-
-    const response = await fetchProductsByFilters({filter,sort});
+  async ({ filter, sort, page }) => {
+    const response = await fetchProductsByFilters({ filter, sort, page });
     return response.data;
   }
 );
@@ -23,6 +22,7 @@ export const productSlice = createSlice({
   initialState: {
     products: [],
     status: "idle",
+    totalItems:0
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllProductsAsync.pending, (state, action) => {
@@ -30,7 +30,7 @@ export const productSlice = createSlice({
     });
     builder.addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
       (state.status = "loaded"),
-        (state.products = [...state.products, ...action.payload ]);
+        (state.products = [...state.products, ...action.payload]);
     });
     builder.addCase(fetchAllProductsAsync.rejected, (state, action) => {
       state.status = "rejected";
@@ -40,8 +40,17 @@ export const productSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(fetchProductsByFilterAsync.fulfilled, (state, action) => {
-      (state.status = "loaded"), (state.products = action.payload);
+      const {products,totalItems} = action.payload;
+      console.log("action payload",action.payload);
+      console.log(products);
+      console.log(totalItems);
+
+      state.status = "loaded";
+      state.products = products;
+      state.totalItems = totalItems;
+
     });
+    
     builder.addCase(fetchProductsByFilterAsync.rejected, (state, action) => {
       state.status = "rejected";
       console.log(action.payload);
@@ -49,7 +58,8 @@ export const productSlice = createSlice({
   },
 });
 
+export const selectAllProducts = (state) => state.product.products;
+export const selectTotalItems = (state) => state.product.totalItems;
 
-export const selectAllProducts = (state) => state.products.products;
 
 export default productSlice.reducer;

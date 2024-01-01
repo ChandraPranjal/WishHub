@@ -3,4 +3,6 @@ Multi Filter in Product List
     -> Make filter and array 
     -> After UnCheck get new results , products of current category 
 
+Filter
+    -> Can't handle filters with spaces "women dresses" need to modify db as well as filter array , values and labels in future
 Filter Popup in Mobile Mode
