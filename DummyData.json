@@ -48,7 +48,9 @@
       "brand": "Samsung",
       "category": "smartphones",
       "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": ["https://i.dummyjson.com/data/products/3/1.jpg"]
+      "images": [
+        "https://i.dummyjson.com/data/products/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -1781,6 +1783,44 @@
       "value": "lighting",
       "label": "lighting",
       "checked": false
+    }
+  ],
+  "users": [
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "confirmPassword": "Pranjal@123",
+      "id": 1
+    },
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "confirmPassword": "Pranjal@123",
+      "id": 2
+    },
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "confirmPassword": "Pranjal@123",
+      "id": 3
+    },
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "confirmPassword": "Pranjal@123",
+      "id": 4
+    },
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "confirmPassword": "Pranjal@123",
+      "id": 5
+    },
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "confirmPassword": "Pranjal@123",
+      "id": 6
     }
   ]
 }

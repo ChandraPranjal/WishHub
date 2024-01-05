@@ -86,10 +86,10 @@ const product = {
 }
 
 export const productSlice = createSlice({
-  name: "product",
+  name: "productSlicerXYZ",
   initialState: {
     products: [],
-    productWithId: {},
+    productWithId: null,
     status: "idle",
     totalItems: 0,
   },

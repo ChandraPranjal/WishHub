@@ -59,7 +59,7 @@ export default function ProductDetails() {
 
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
-  return product && product.images && product.images.length > 2 ? (
+  return product ? 
     <>
       <div className="bg-white">
         {/* {data} */}
@@ -354,7 +354,7 @@ export default function ProductDetails() {
         </div>
       </div>
     </>
-  ) : (
+   : (
     <>Loading</>
   );
 }
