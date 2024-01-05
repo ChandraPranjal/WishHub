@@ -6,3 +6,10 @@ Multi Filter in Product List
 Filter
     -> Can't handle filters with spaces "women dresses" need to modify db as well as filter array , values and labels in future
 Filter Popup in Mobile Mode
+
+User should not be able to reach /login , /signup while he is alread signed in
+Signout feature
+
+
+Handling Duplicate Items in Cart . 
+And Adding quantity should increase count in cart or not ? 

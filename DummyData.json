@@ -1821,6 +1821,77 @@
       "password": "Pranjal@123",
       "confirmPassword": "Pranjal@123",
       "id": 6
+    },
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "id": 7
+    }
+  ],
+  "cart": [
+    {
+      "name": "iPhone X",
+      "price": 899,
+      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "name": "Samsung Universe 9",
+      "price": 1249,
+      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "name": "Infinix INBOOK",
+      "price": 1099,
+      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "name": "Samsung Universe 9",
+      "price": 1249,
+      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "name": "Infinix INBOOK",
+      "price": 1099,
+      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "name": "Infinix INBOOK",
+      "price": 1099,
+      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "name": "Infinix INBOOK",
+      "price": 1099,
+      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "name": "iPhone X",
+      "price": 899,
+      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 10
     }
   ]
 }

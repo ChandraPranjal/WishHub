@@ -229,15 +229,15 @@ export default function ProductList() {
     dispatch(fetchFilterAsync());
   }, []);
 
-  useEffect(() => {
-    console.log(filters[0]);
-  }, filters);
+  // useEffect(() => {
+  //   console.log(filters[0]);
+  // }, filters);
 
   useEffect(() => {
-    console.log(categories);
+    // console.log(categories);
     filters[0].options = categories;
     filters[1].options = brands;
-    console.log(filters[0]);
+    // console.log(filters[0]);
   }, [categories]);
 
   return (

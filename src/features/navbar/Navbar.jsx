@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -15,6 +16,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar({ children }) {
+  const CartItems = useSelector((store)=>store.cart.cartItems)
   return (
     <div className="min-h-full">
       <Disclosure as="nav" className="bg-gray-800">
@@ -72,7 +74,7 @@ export default function Navbar({ children }) {
                     </Link>
                   </button>
                   <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 mb-7 -ml-3 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                    1
+                    {CartItems.length}
                   </span>
 
                   {/* Profile dropdown */}

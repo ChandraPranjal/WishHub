@@ -18,6 +18,7 @@ import { RadioGroup } from "@headlessui/react";
 import { useParams } from "react-router-dom";
 import { fetchProductByIdAsync } from "../productSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { addItemAsync} from "../../cart/cartSlice";
 
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
@@ -46,6 +47,7 @@ const product = {
 
 export default function ProductDetails() {
   const product = useSelector((state) => state.product.productWithId);
+  const userId = useSelector((store) => store.auth.userToken);
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -59,7 +61,16 @@ export default function ProductDetails() {
 
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
-  return product ? 
+
+  const addToCartHandler = (e) => {
+    e.preventDefault();
+
+    const {name,price,imageSrc,quantity=1} = product;
+    console.log({ name , price,imageSrc,quantity, userId });
+    dispatch(addItemAsync({  name , price,imageSrc,quantity, userId, userId }));
+  };
+
+  return product ? (
     <>
       <div className="bg-white">
         {/* {data} */}
@@ -307,6 +318,7 @@ export default function ProductDetails() {
                 <button
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  onClick={addToCartHandler}
                 >
                   Add to Cart
                 </button>
@@ -354,7 +366,7 @@ export default function ProductDetails() {
         </div>
       </div>
     </>
-   : (
+  ) : (
     <>Loading</>
   );
 }

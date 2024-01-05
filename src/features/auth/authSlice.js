@@ -41,7 +41,7 @@ export const authSlice = createSlice({
     });
     builder.addCase(loginUserAsync.fulfilled , (state,action)=>{
       state.status = "loaded"
-      state.userToken = action.payload;
+      state.userToken = action.payload.id;
     });
     builder.addCase(loginUserAsync.rejected , (state,action)=>{
       state.status = "rejected"

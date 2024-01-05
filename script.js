@@ -1,20 +1,5 @@
-
-const filters = [
-  {
-    id: "category",
-    name: "Category",
-    // options: [{ value: "New Arrivals", label: "All", checked: true }],
-    options: [],
-  },
-  {
-    id: "brand",
-    name: "Brands",
-    // options: [{ value: "New Arrivals", label: "Apple", checked: false }],
-    options: [],
-  },
-];
-const arr = ["anr" , "jjd"];
-filters[0].options = arr;
-
-
-console.log(filters[0].options);
+const arr = [1, 2, 90, 12, 23];
+const data = arr.map((item) => {
+  if (item > 100) return item;
+});
+console.log(data);
