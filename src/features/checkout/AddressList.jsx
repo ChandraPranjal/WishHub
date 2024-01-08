@@ -1,28 +1,19 @@
-const address = [
-    {
-        name: 'Leslie Alexander',
-        address: 'IIIT Guwahati,Assam 2111002 ',
+import { useState } from "react"
 
-    },
-    {
-        name: 'Michael Foster',
-        address: 'Prayagraj,Allahabad 2111002 ',
 
-    },
+export default function AddressList({addresses,setCurrentAddress}) {
 
-]
-
-export default function AddressList() {
     return (
         <ul role="list" className="divide-y divide-gray-100">
-            {address.map((address) => (
-                <li key={address.email} className="flex justify-between gap-x-6 py-5">
+            {addresses.map((address,index) => (
+                <li key={index} className="flex justify-between gap-x-6 py-5">
                     <div className="flex min-w-0 gap-x-4">
                         <input
-                            id="push-email"
-                            name="push-notifications"
+                            id="address"
+                            name="address"
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            onChange={()=>{setCurrentAddress(address)}}
                         />
                         <div className="min-w-0 flex-auto">
                             <p className="text-sm font-semibold leading-6 text-gray-900">{address.name}</p>

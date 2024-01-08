@@ -8,18 +8,14 @@ function Protected({ children }) {
   const navigate = useNavigate();
   useEffect(() => {
     if (!data) {
-      console.log("Hello under water");
       navigate("/login");
     } else {
-      console.log("Hello under fire");
-
     }
   }, [data]);
 
   if (!data) {
     return null;
   } else {
-    console.log("Hi");
     return children;
   }
 }

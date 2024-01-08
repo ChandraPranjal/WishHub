@@ -533,47 +533,50 @@ function ProductGrid({ products }) {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-            {products.map((product) => (
-              <Link to={`/productdetails/${product.id}`}>
-                <div key={product.id} className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full  overflow-hidden rounded-md bg-gray-200 border-solid border-r-2 p-2 shadow-md shadow-gray-400 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                    <img
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                    />
-                  </div>
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className="text-sm text-gray-700">
-                        {/* <a href={product.href}>
-                                                            <span aria-hidden="true" className="absolute inset-0" /> */}
-                        {product.name}
-                        {/* </a> */}
-                      </h3>
-                      <h3 className="text-sm flex items-center text-gray-700">
-                        {/* <a href={product.href}>
-                                                            <span aria-hidden="true" className="absolute inset-0" /> */}
-                        <StarIcon className="h-5 inline m-1" />
-                        <div className="mt-1">{product.rating}</div>
-                        {/* </a> */}
-                      </h3>
-                      {/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
+            {products.map((product,idx) => (
+              <div key = {idx}>
+                <Link to={`/productdetails/${product.id}`}>
+                  <div key={product.id} className="group relative">
+                    <div className="aspect-h-1 aspect-w-1 w-full  overflow-hidden rounded-md bg-gray-200 border-solid border-r-2 p-2 shadow-md shadow-gray-400 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                      <img
+                        src={product.imageSrc}
+                        alt={product.imageAlt}
+                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      />
                     </div>
-                    <div>
-                      <p className="text-sm font-medium  text-gray-900 ">
-                        $
-                        {Math.round(
-                          product.price * (1 - product.discountPercentage / 100)
-                        )}
-                      </p>
-                      <p className="text-sm font-medium text-gray-500 line line-through">
-                        ${product.price}
-                      </p>
+                    <div className="mt-4 flex justify-between">
+                      <div>
+                        <h3 className="text-sm text-gray-700">
+                          {/* <a href={product.href}>
+                                                            <span aria-hidden="true" className="absolute inset-0" /> */}
+                          {product.name}
+                          {/* </a> */}
+                        </h3>
+                        <h3 className="text-sm flex items-center text-gray-700">
+                          {/* <a href={product.href}>
+                                                            <span aria-hidden="true" className="absolute inset-0" /> */}
+                          <StarIcon className="h-5 inline m-1" />
+                          <div className="mt-1">{product.rating}</div>
+                          {/* </a> */}
+                        </h3>
+                        {/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium  text-gray-900 ">
+                          $
+                          {Math.round(
+                            product.price *
+                              (1 - product.discountPercentage / 100)
+                          )}
+                        </p>
+                        <p className="text-sm font-medium text-gray-500 line line-through">
+                          ${product.price}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -638,6 +641,7 @@ function Pagination({ currentPage, pageHandler, totalItems }) {
               (ele, idx) => {
                 return (
                   <div
+                    key={idx}
                     aria-current="page"
                     onClick={() => {
                       pageHandler(idx + 1);
@@ -646,7 +650,9 @@ function Pagination({ currentPage, pageHandler, totalItems }) {
                       currentPage === idx + 1
                         ? "relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         : "relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                    } `}
+                    }
+                    {
+                     `}
                   >
                     {idx + 1}
                   </div>

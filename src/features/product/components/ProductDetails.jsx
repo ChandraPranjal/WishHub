@@ -67,7 +67,7 @@ export default function ProductDetails() {
 
     const {name,price,imageSrc,quantity=1} = product;
     console.log({ name , price,imageSrc,quantity, userId });
-    dispatch(addItemAsync({  name , price,imageSrc,quantity, userId, userId }));
+    dispatch(addItemAsync({  name , price,imageSrc,quantity, userId}));
   };
 
   return product ? (

@@ -13,3 +13,8 @@ Signout feature
 
 Handling Duplicate Items in Cart . 
 And Adding quantity should increase count in cart or not ? 
+
+
+->Empty Cart after Order
+->Redirect to order-suceess
+->on server change the stock after order
