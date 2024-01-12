@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteItemFromCartAsync, updateCartAsync } from "./cartSlice";
 
-function CartItem({ product }) {
+function CheckoutCardItem({ product }) {
 
   const [quantity, setQuantity] = useState(1);
+  const [currentOrder , setCurrentOrder] = useState(product)
   const quantityHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -16,7 +17,8 @@ function CartItem({ product }) {
 
   const removeHandler = (e) => {
     e.preventDefault();
-    dispatch(deleteItemFromCartAsync(product.id));
+    
+
   };
   useEffect(() => {
     const updateObj = {...product};
@@ -77,4 +79,4 @@ function CartItem({ product }) {
   );
 }
 
-export default CartItem;
+export default CheckoutCardItem;

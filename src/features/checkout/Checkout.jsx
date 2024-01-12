@@ -2,10 +2,10 @@ import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import Cart from "../../pages/CartPage";
 import AddressList from "./AddressList";
 import PaymentList from "./PaymentList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { createContactAsync } from "./contactSlice";
+import { createContactAsync, getContactsAsync } from "./contactSlice";
 
 // const addresses = [
 //   {
@@ -23,6 +23,7 @@ export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("Cash");
 
   const addresses = useSelector((store) => store.contact.data);
+  const userId = useSelector((store)=>store.auth.userToken)
   const paymentOptions = [
     {
       name: "Cash",
@@ -31,7 +32,7 @@ export default function Checkout() {
       name: "Card Payment",
     },
   ];
-  //console.log("addresses is ", addresses);
+
   const {
     register,
     handleSubmit,
@@ -41,7 +42,12 @@ export default function Checkout() {
 
   const dispatch = useDispatch();
 
-  console.log("Checkout Refreshed");
+  useEffect(() => {
+
+    dispatch(getContactsAsync(userId))
+  }, []);
+
+
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
@@ -53,7 +59,7 @@ export default function Checkout() {
               const obj = {};
               obj.name = `${data[`first-name`]} ${data[`last-name`]}`;
               obj.email = data.email;
-              console.log("Checkout Refreshed");
+
               obj.address = `${data[`street-address`]} ${data[`city`]}  ${
                 data[`state`]
               } ${data[`postal-code`]} ${data[`country`]}`;
@@ -288,7 +294,7 @@ export default function Checkout() {
                   <fieldset>
                     <div className="mt-3 space-y-6">
                       <div className="flex items-center gap-x-3">
-                        {console.log("addresses.length is", addresses.length)}
+    
                         {addresses.length > 0 ? (
                           <AddressList
                             addresses={addresses}

@@ -1,7 +1,7 @@
 //Added quantity state mySelf from tailwind template
 //Made a component CardItem also
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, Navigate, useNavigate } from "react-router-dom";
@@ -35,14 +35,14 @@ import { createOrderAsync } from "../order/orderSlice";
 //   // More products...
 // ]
 
-export default function Cart({orderData}) {
+export default function Cart({ orderData }) {
   const [open, setOpen] = useState(true);
   const location = useLocation();
   const { pathname } = location;
 
-  const products = useSelector((store) => store.cart.cartItems);
   const dispatch = useDispatch();
-
+  const products = useSelector((store) => store.cart.cartItems);
+  const orderStatus = useSelector((store) => store.order.orderPlaced);
   const initialValue = 0;
   const totalCost = products.reduce(
     (accumulator, currentValue) =>
@@ -50,7 +50,10 @@ export default function Cart({orderData}) {
     initialValue
   );
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (orderStatus) navigate(`/order_success/${orderStatus.id}`);
+  }, [orderStatus]);
 
   return (
     <>
@@ -74,11 +77,13 @@ export default function Cart({orderData}) {
           <div className="mt-8">
             <div className="flow-root">
               <ul role="list" className="-my-6 divide-y divide-gray-200">
-                {products.map((product) => (
-                  <li key={product.id} className="flex py-6">
-                    <CardItem product={product} />
-                  </li>
-                ))}
+                {products.map((product) => {
+                  return (
+                    <li key={product.id} className="flex py-6">
+                      <CardItem product={product} />
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -97,10 +102,15 @@ export default function Cart({orderData}) {
               to="/checkout"
               className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 cursor-pointer"
               onClick={() => {
-                console.log("Clicked ordr data",orderData );
-                if (pathname === "/checkout") dispatch(createOrderAsync( {products, orderData} ));
-                else
-                navigate('/checkout')
+
+                if (pathname === "/checkout") {
+                  if (!orderData.currentAddress) {
+                    alert("Select Address");
+                    return;
+                  }
+
+                  dispatch(createOrderAsync({ products, orderData }));
+                } else navigate("/checkout");
               }}
             >
               {pathname === "/checkout" ? "Pay and Order" : "Checkout"}

@@ -62,12 +62,14 @@ export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState();
   const [selectedSize, setSelectedSize] = useState();
 
+  
   const addToCartHandler = (e) => {
     e.preventDefault();
-
+    const productId = product.id;
     const {name,price,imageSrc,quantity=1} = product;
-    console.log({ name , price,imageSrc,quantity, userId });
-    dispatch(addItemAsync({  name , price,imageSrc,quantity, userId}));
+    
+    // console.log({ name , price,imageSrc,quantity, userId });
+    dispatch(addItemAsync({productId,  name , price,imageSrc,quantity, userId}));
   };
 
   return product ? (

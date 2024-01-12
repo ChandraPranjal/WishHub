@@ -1791,459 +1791,247 @@
       "password": "Pranjal@123",
       "confirmPassword": "Pranjal@123",
       "id": 1
-    },
-    {
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "password": "Pranjal@123",
-      "confirmPassword": "Pranjal@123",
-      "id": 2
-    },
-    {
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "password": "Pranjal@123",
-      "confirmPassword": "Pranjal@123",
-      "id": 3
-    },
-    {
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "password": "Pranjal@123",
-      "confirmPassword": "Pranjal@123",
-      "id": 4
-    },
-    {
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "password": "Pranjal@123",
-      "confirmPassword": "Pranjal@123",
-      "id": 5
-    },
-    {
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "password": "Pranjal@123",
-      "confirmPassword": "Pranjal@123",
-      "id": 6
-    },
-    {
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "password": "Pranjal@123",
-      "id": 7
     }
   ],
   "cart": [
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 1
     },
     {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "productId": 4,
+      "name": "OPPOF19",
+      "price": 280,
+      "imageSrc": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 2
     },
     {
-      "name": "Infinix INBOOK",
+      "productId": 10,
+      "name": "HP Pavilion 15-DK1056WM",
       "price": 1099,
-      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "imageSrc": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
       "quantity": 1,
       "userId": 1,
       "id": 3
     },
     {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 5
     },
     {
-      "name": "Infinix INBOOK",
-      "price": 1099,
-      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 6
     },
     {
-      "name": "Infinix INBOOK",
-      "price": 1099,
-      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 8
     },
     {
-      "name": "Infinix INBOOK",
-      "price": 1099,
-      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 9
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "quantity": 2,
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "quantity": 1,
       "userId": 1,
       "id": 10
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 11
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 12
     },
     {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 13
     },
     {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 14
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 15
-    },
-    {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 16
-    },
-    {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 17
-    },
-    {
+      "productId": 7,
       "name": "Samsung Galaxy Book",
       "price": 1499,
       "imageSrc": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
+      "id": 14
+    },
+    {
+      "productId": 3,
+      "name": "Samsung Universe 9",
+      "price": 1249,
+      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "quantity": 3,
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "productId": 10,
+      "name": "HP Pavilion 15-DK1056WM",
+      "price": 1099,
+      "imageSrc": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+      "quantity": 1,
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "productId": 5,
+      "name": "Huawei P30",
+      "price": 499,
+      "imageSrc": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+      "quantity": 1,
+      "userId": 1,
       "id": 18
     },
     {
-      "name": "Infinix INBOOK",
-      "price": 1099,
-      "imageSrc": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
-      "quantity": 1,
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "quantity": 5,
       "userId": 1,
       "id": 19
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 20
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 21
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 22
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 23
     },
     {
+      "productId": 2,
       "name": "iPhone X",
       "price": 899,
       "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "quantity": 1,
-      "userId": 1,
+      "userId": {
+        "email": "pranjal.chandra@iiitg.ac.in",
+        "password": "Pranjal@123",
+        "confirmPassword": "Pranjal@123",
+        "id": 1
+      },
       "id": 24
     },
     {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "productId": 1,
+      "name": "iPhone 9",
+      "price": 549,
+      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 25
     },
     {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      "productId": 2,
+      "name": "iPhone X",
+      "price": 899,
+      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "quantity": 1,
       "userId": 1,
       "id": 26
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 27
-    },
-    {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 28
-    },
-    {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 29
-    },
-    {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 30
-    },
-    {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 31
-    },
-    {
-      "name": "Samsung Universe 9",
-      "price": 1249,
-      "imageSrc": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 32
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 33
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 34
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 35
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 36
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 37
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 38
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 39
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 40
-    },
-    {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 41
-    },
-    {
-      "name": "iPhone X",
-      "price": 899,
-      "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 42
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 43
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 44
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 45
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 46
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 47
-    },
-    {
-      "name": "HP Pavilion 15-DK1056WM",
-      "price": 1099,
-      "imageSrc": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 48
-    },
-    {
-      "name": "HP Pavilion 15-DK1056WM",
-      "price": 1099,
-      "imageSrc": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 49
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 50
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 2,
-      "userId": 1,
-      "id": 51
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 52
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 2,
-      "userId": 1,
-      "id": 53
-    },
-    {
-      "name": "iPhone 9",
-      "price": 549,
-      "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "quantity": 1,
-      "userId": 1,
-      "id": 54
     }
   ],
   "contacts": [
@@ -2252,152 +2040,19 @@
       "email": "pranjal.chandra@iiitg.ac.in",
       "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
       "id": 1
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 2
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 3
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 4
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 5
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 6
-    },
-    {
-      "name": "OK Tata",
-      "email": "ksssk@gmail.com",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 Canada",
-      "id": 7
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 8
-    },
-    {
-      "name": "OK Tata",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 9
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 10
-    },
-    {
-      "name": "OK Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 11
-    },
-    {
-      "name": "OK Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 12
-    },
-    {
-      "name": "OK Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 13
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 14
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 15
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 16
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 17
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 18
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 19
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 20
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 21
-    },
-    {
-      "name": "Pranjal Chandra",
-      "email": "pranjal.chandra@iiitg.ac.in",
-      "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-      "id": 22
     }
   ],
   "orders": [
     {
       "products": [
         {
+          "productId": 1,
           "name": "iPhone 9",
           "price": 549,
           "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
           "quantity": 1,
           "userId": 1,
-          "id": 53
-        },
-        {
-          "name": "iPhone 9",
-          "price": 549,
-          "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "quantity": 1,
-          "userId": 1,
-          "id": 54
+          "id": 13
         }
       ],
       "orderData": {
@@ -2406,7 +2061,7 @@
           "name": "Pranjal Chandra",
           "email": "pranjal.chandra@iiitg.ac.in",
           "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-          "id": 22
+          "id": 1
         },
         "paymentMethod": "Cash"
       },
@@ -2415,20 +2070,13 @@
     {
       "products": [
         {
+          "productId": 1,
           "name": "iPhone 9",
           "price": 549,
           "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "quantity": 2,
+          "quantity": 3,
           "userId": 1,
-          "id": 53
-        },
-        {
-          "name": "iPhone 9",
-          "price": 549,
-          "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "quantity": 1,
-          "userId": 1,
-          "id": 54
+          "id": 16
         }
       ],
       "orderData": {
@@ -2437,11 +2085,83 @@
           "name": "Pranjal Chandra",
           "email": "pranjal.chandra@iiitg.ac.in",
           "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
-          "id": 22
+          "id": 1
+        },
+        "paymentMethod": "Card Payment"
+      },
+      "id": 2
+    },
+    {
+      "products": [
+        {
+          "productId": 1,
+          "name": "iPhone 9",
+          "price": 549,
+          "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "quantity": 1,
+          "userId": 1,
+          "id": 20
+        }
+      ],
+      "orderData": {
+        "user": 1,
+        "currentAddress": {
+          "name": "Pranjal Chandra",
+          "email": "pranjal.chandra@iiitg.ac.in",
+          "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
+          "id": 1
         },
         "paymentMethod": "Cash"
       },
-      "id": 2
+      "id": 3
+    },
+    {
+      "products": [
+        {
+          "productId": 1,
+          "name": "iPhone 9",
+          "price": 549,
+          "imageSrc": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "quantity": 1,
+          "userId": 1,
+          "id": 25
+        }
+      ],
+      "orderData": {
+        "user": 1,
+        "currentAddress": {
+          "name": "Pranjal Chandra",
+          "email": "pranjal.chandra@iiitg.ac.in",
+          "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
+          "id": 1
+        },
+        "paymentMethod": "Cash"
+      },
+      "id": 4
+    },
+    {
+      "products": [
+        {
+          "productId": 2,
+          "name": "iPhone X",
+          "price": 899,
+          "imageSrc": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "quantity": 1,
+          "userId": 1,
+          "id": 26
+        }
+      ],
+      "orderData": {
+        "user": 1,
+        "currentAddress": {
+          "name": "Pranjal Chandra",
+          "email": "pranjal.chandra@iiitg.ac.in",
+          "address": "NH17, Bijoynagar - Jalukbari Rd, Bongora Guwahati  Assam 781015 India",
+          "id": 1
+        },
+        "paymentMethod": "Cash"
+      },
+      "id": 5
     }
   ]
 }
