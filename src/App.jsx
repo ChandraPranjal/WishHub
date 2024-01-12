@@ -13,8 +13,9 @@ import CheckoutPage from "./pages/CheckoutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import Protected from "./features/auth/components/Protected";
-import OrderSuccessPage from "./pages/OrderSuccessPage"
+import OrderSuccessPage from "./pages/OrderSuccessPage";
 import UserOrderPage from "./pages/UserOrderPage";
+import Signout from "./features/signout/Signout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -65,7 +66,15 @@ const router = createBrowserRouter(
         path="/userOrders"
         element={
           <Protected>
-            < UserOrderPage/>
+            <UserOrderPage />
+          </Protected>
+        }
+      ></Route>
+      <Route
+        path="/signOut"
+        element={
+          <Protected>
+            <Signout />
           </Protected>
         }
       ></Route>

@@ -17,12 +17,17 @@ export const loginUserAsync = createAsyncThunk(
   }
 );
 
+export const signOutAsync = createAsyncThunk("user/signout", async (userId) => {
+  //do something in backend
+  return "success";
+});
+
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
     status: "idle",
     userToken: null,
-    error:null
+    error: null,
   },
   extraReducers: (builder) => {
     builder.addCase(createUserAsync.pending, (state, action) => {
@@ -36,19 +41,28 @@ export const authSlice = createSlice({
     builder.addCase(createUserAsync.rejected, (state, action) => {
       state.status = "rejected";
     });
-    builder.addCase(loginUserAsync.pending , (state,action)=>{
-      state.status = "loading"
+    builder.addCase(loginUserAsync.pending, (state, action) => {
+      state.status = "loading";
     });
-    builder.addCase(loginUserAsync.fulfilled , (state,action)=>{
-      state.status = "loaded"
+    builder.addCase(loginUserAsync.fulfilled, (state, action) => {
+      state.status = "loaded";
       state.userToken = action.payload.id;
     });
-    builder.addCase(loginUserAsync.rejected , (state,action)=>{
-      state.status = "rejected"
-      state.userToken = action.payload
+    builder.addCase(loginUserAsync.rejected, (state, action) => {
+      state.status = "rejected";
+      state.userToken = action.payload;
       state.error = action.error;
     });
-
+    builder.addCase(signOutAsync.pending, (state, action) => {
+      state.status = "loading";
+    });
+    builder.addCase(signOutAsync.fulfilled, (state, action) => {
+      state.status = "loaded";
+      state.userToken = null;
+    });
+    builder.addCase(signOutAsync.rejected, (state, action) => {
+      state.status = "rejected";
+    });
   },
 });
 

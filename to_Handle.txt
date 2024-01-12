@@ -25,3 +25,4 @@ And Adding quantity should increase count in cart or not ?
 ->Add OrderStatus in database .And handle it from admin page
 
 -> Should orders data be reseted after payment is done ? [] //in  orderSlice 
+-> Forgot Password functionalites when backend is ready
