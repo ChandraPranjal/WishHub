@@ -1,0 +1,35 @@
+Multi Filter in Product List
+    -> Delete From Filter if unchecked
+    -> Make filter and array 
+    -> After UnCheck get new results , products of current category 
+
+Filter
+    -> Can't handle filters with spaces "women dresses" need to modify db as well as filter array , values and labels in future
+Filter Popup in Mobile Mode
+
+User should not be able to reach /login , /signup while he is alread signed in
+Signout feature
+
+
+Handling Duplicate Items in Cart . 
+And Adding quantity should increase count in cart or not ? 
+
+
+->Empty Cart after Order
+->Redirect to order-suceess
+->on server change the stock after order
+
+->User May still want to keep some items to buy later . So, add option to handle that
+-> ++quantity if same product already present . Do it from backend
+
+->Add OrderStatus in database .And handle it from admin page
+
+-> Should orders data be reseted after payment is done ? [] //in  orderSlice 
+-> Forgot Password functionalites when backend is ready
+
+------>>>>> Priority!!<<<<<<--------------
+
+-> Add company propery in products catalog database
+-> Add type role in userInfo
+-> Create Admin Page 
+-> Give Edit/Delete/Add features to admin 
