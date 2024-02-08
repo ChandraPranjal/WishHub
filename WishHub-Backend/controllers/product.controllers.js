@@ -29,25 +29,39 @@ const fetchProducts = async (req, res) => {
   }
 
   try {
-    let productsPromise = Product.find(
+    let productsQuery = Product.find(
       query.length !== 0 ? { $or: [...query] } : {}
     );
-    if (req.query._order)
-      productsPromise = productsPromise.sort(
+
+
+    if (req.query._order) {
+      productsQuery = productsQuery.sort(
         req.query._order === "asc"
           ? `${req.query._sort}`
           : `-${req.query._sort}`
       );
-    if (req.query._page) {
-      const items_per_page = req.query._limit;
-      const current_page = req.query._page;
-      productsPromise = productsPromise.skip(
-        items_per_page * (current_page - 1)
-      );
     }
-    productsPromise = productsPromise.limit(10);
 
-    const products = await productsPromise;
+
+    const totalDocs = await Product.countDocuments(
+      query.length !== 0 ? { $or: [...query] } : {}
+    );
+
+    res.set("X-Total-Count", totalDocs);
+
+
+    if (req.query._page) {
+      const itemsPerPage = req.query._limit || 10;
+      const currentPage = req.query._page;
+      productsQuery = productsQuery.skip(itemsPerPage * (currentPage - 1));
+    }
+
+
+    productsQuery = productsQuery.limit(10);
+
+
+    const products = await productsQuery.exec();
+
     res.status(201).json(products);
   } catch (error) {
     console.log(error);
