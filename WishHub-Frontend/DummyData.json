@@ -1791,6 +1791,12 @@
       "password": "Pranjal@123",
       "confirmPassword": "Pranjal@123",
       "id": 1
+    },
+    {
+      "email": "pranjal.chandra@iiitg.ac.in",
+      "password": "Pranjal@123",
+      "confirmPassword": "Pranjal@123",
+      "id": 2
     }
   ],
   "cart": [
