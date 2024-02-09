@@ -57,7 +57,7 @@ const fetchProducts = async (req, res) => {
 
     const products = await productsQuery.exec();
 
-    res.status(201).json(products);
+    res.status(200).json(products);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
