@@ -33,7 +33,6 @@ const fetchProducts = async (req, res) => {
       query.length !== 0 ? { $or: [...query] } : {}
     );
 
-
     if (req.query._order) {
       productsQuery = productsQuery.sort(
         req.query._order === "asc"
@@ -42,13 +41,11 @@ const fetchProducts = async (req, res) => {
       );
     }
 
-
     const totalDocs = await Product.countDocuments(
       query.length !== 0 ? { $or: [...query] } : {}
     );
 
     res.set("X-Total-Count", totalDocs);
-
 
     if (req.query._page) {
       const itemsPerPage = req.query._limit || 10;
@@ -56,9 +53,7 @@ const fetchProducts = async (req, res) => {
       productsQuery = productsQuery.skip(itemsPerPage * (currentPage - 1));
     }
 
-
     productsQuery = productsQuery.limit(10);
-
 
     const products = await productsQuery.exec();
 
