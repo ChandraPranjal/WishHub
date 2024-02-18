@@ -10,7 +10,7 @@ export default function Login() {
   const user = useSelector((store) => store.auth.userToken);
   const error = useSelector((store) => store.auth.error);
   const navigate = useNavigate();
-
+  console.log(document.cookie);
   return (
     <>
       {/*

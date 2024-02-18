@@ -2,6 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { createUserAsync } from "../authSlice";
+
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import { useState } from "react";
+
 export default function SignUp() {
   const {
     register,
@@ -14,6 +22,14 @@ export default function SignUp() {
   const user = useSelector((store) => {
     return store.auth.userToken;
   });
+  const error = useSelector((store) => store.auth.error);
+
+  const [value, setValue] = useState("female");
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
   const navigate = useNavigate();
   return (
     <>
@@ -120,6 +136,13 @@ export default function SignUp() {
                   type="password"
                   className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                <div className="block text-sm font-medium leading-6 text-gray-900 pt-1 pb-1 b-0">
+                  <label>Type : </label>
+                  <select {...register("role")} className="outline-none">
+                    <option value="Customer">Customer</option>
+                    <option value="Admin">Admin</option>
+                  </select>
+                </div>
                 {errors.confirmPassword && (
                   <p className="text-red-500">
                     {errors.confirmPassword.message}
@@ -135,6 +158,7 @@ export default function SignUp() {
               >
                 Sign Up
               </button>
+              <p className="text-red-500">{error && error.message}</p>
             </div>
           </form>
 

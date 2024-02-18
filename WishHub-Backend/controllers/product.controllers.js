@@ -1,6 +1,6 @@
 const { Product } = require("../models/product.model");
 
-const createProducts = (req, res) => {
+const createProducts = async (req, res) => {
   const product = new Product(req.body);
   product
     .save()
@@ -14,21 +14,34 @@ const createProducts = (req, res) => {
 };
 
 const fetchProducts = async (req, res) => {
-  const query = [];
-
-  if (req.body.brands) {
-    req.body.brands.map((brand) => {
-      query.push({ brand: brand });
-    });
-  }
-
-  if (req.body.categories) {
-    req.body.categories.map((category) => {
-      query.push({ category: category });
-    });
-  }
-
   try {
+    const query = [];
+
+    const brand = req.query.brand || [];
+    const category = req.query.category || [];
+
+    // console.log(req.query);
+    let brands = [],
+      categories = [];
+    if (brand.length !== 0) {
+      brands = brand.split(",");
+    }
+    if (category.length !== 0) {
+      categories = category.split(",");
+    }
+    // console.log(brands, categories);
+    if (brands.length !== 0) {
+      brands.map((brand) => {
+        query.push({ brand: brand });
+      });
+    }
+
+    if (categories.length !== 0) {
+      categories.map((category) => {
+        query.push({ category: category });
+      });
+    }
+
     let productsQuery = Product.find(
       query.length !== 0 ? { $or: [...query] } : {}
     );
@@ -64,4 +77,29 @@ const fetchProducts = async (req, res) => {
   }
 };
 
-module.exports = { createProducts, fetchProducts };
+const fetchProductById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const product = await Product.findById(id);
+    res.status(200).json(product);
+  } catch (error) {
+    console.log(`Error occured while fetching by Id ${error}`);
+  }
+};
+
+const updateProductById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) throw new Error("id is required");
+    const updatedDoc = await Product.findByIdAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    );
+    res.status(200).json(updatedDoc);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
+module.exports = { createProducts, fetchProducts, fetchProductById ,updateProductById};

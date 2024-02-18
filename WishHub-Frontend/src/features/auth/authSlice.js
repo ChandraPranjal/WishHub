@@ -40,6 +40,8 @@ export const authSlice = createSlice({
     });
     builder.addCase(createUserAsync.rejected, (state, action) => {
       state.status = "rejected";
+      console.log(action);
+      state.error = action.error;
     });
     builder.addCase(loginUserAsync.pending, (state, action) => {
       state.status = "loading";
