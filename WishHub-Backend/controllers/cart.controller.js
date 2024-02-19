@@ -30,12 +30,15 @@ const addItem = async (req, res) => {
 };
 
 const fetchItemsByUserId = async (req, res) => {
+  console.log("Inside fetch", req.query.userId);
   try {
     const { userId } = req.query;
     console.log(userId);
     const doc = await Cart.find({ user: userId })
       .populate("product")
       .populate("user");
+
+    console.log("docs is" , doc);
     res.status(200).json(doc);
   } catch (error) {
     console.log(error);

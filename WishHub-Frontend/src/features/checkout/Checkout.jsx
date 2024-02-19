@@ -23,7 +23,7 @@ export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("Cash");
 
   const addresses = useSelector((store) => store.contact.data);
-  const userId = useSelector((store)=>store.auth.userToken)
+  const userId = useSelector((store) => store.auth.userToken);
   const paymentOptions = [
     {
       name: "Cash",
@@ -43,10 +43,8 @@ export default function Checkout() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
-    dispatch(getContactsAsync(userId))
+    dispatch(getContactsAsync(userId));
   }, []);
-
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -63,6 +61,7 @@ export default function Checkout() {
               obj.address = `${data[`street-address`]} ${data[`city`]}  ${
                 data[`state`]
               } ${data[`postal-code`]} ${data[`country`]}`;
+              obj.userId = userId;
 
               dispatch(createContactAsync(obj));
               reset();
@@ -294,7 +293,6 @@ export default function Checkout() {
                   <fieldset>
                     <div className="mt-3 space-y-6">
                       <div className="flex items-center gap-x-3">
-    
                         {addresses.length > 0 ? (
                           <AddressList
                             addresses={addresses}

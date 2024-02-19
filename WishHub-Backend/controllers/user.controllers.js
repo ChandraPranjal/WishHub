@@ -1,3 +1,4 @@
+const { Address } = require("../models/addressSchema");
 const { User } = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
@@ -180,6 +181,30 @@ const updateUserById = async (req, res) => {
   }
 };
 
+const getContacts = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const doc = await Address.find({ userId: id });
+    res.status(200).json(doc);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+};
+
+const createContact = async (req, res) => {
+  try {
+    console.log("Here in create", req.body);
+    const { id } = req.params;
+    const doc = new Address(req.body);
+    const address = await doc.save();
+    res.status(201).json(address);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json(error);
+  }
+};
+
 module.exports = {
   createUser,
   loginUser,
@@ -187,4 +212,6 @@ module.exports = {
   refreshAccessToken,
   fetchUserById,
   updateUserById,
+  getContacts,
+  createContact,
 };
