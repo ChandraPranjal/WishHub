@@ -2,27 +2,43 @@ const { Cart } = require("../models/cart.model");
 
 const addItem = async (req, res) => {
   try {
-    const cartProduct = await Cart.findOneAndUpdate(
-      { product: req.body.productId },
-      { $inc: { quantity: 1 } }, // Increment quantity by 1
-      { upsert: true, new: true } // If the document doesn't exist, create a new one
-    ).populate("product");
-    res.status(201).json(cartProduct);
+    console.log(req.body);
+    const docIfAlreadyPresent = await Cart.findOne({
+      product: req.body.productId,
+    });
+    if (docIfAlreadyPresent) {
+      const cartProduct = await Cart.findOneAndUpdate(
+        { product: req.body.productId },
+        { $set: { quantity: docIfAlreadyPresent.quantity + 1 } },
+        { new: true }
+      ).populate("product");
+      res.status(201).json(cartProduct);
+    } else {
+      const item = new Cart({
+        ...req.body,
+        user: req.body.userId,
+        product: req.body.productId,
+      });
+      const doc = await item.save();
+      const cartProduct = await doc.populate("product");
+      res.status(201).json(cartProduct);
+    }
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
   }
 };
 
-const fetchItemsByUserId = (req, res) => {
+const fetchItemsByUserId = async (req, res) => {
   try {
     const { userId } = req.query;
     console.log(userId);
-    const doc = Cart.find({ user: userId })
+    const doc = await Cart.find({ user: userId })
       .populate("product")
       .populate("user");
     res.status(200).json(doc);
   } catch (error) {
+    console.log(error);
     res.status(400).json(error);
   }
 };
