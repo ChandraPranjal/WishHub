@@ -45,9 +45,10 @@ export const deleteItemFromCart = (itemId) => {
 };
 
 export const resetCart = (userId) => {
+  console.log("Restiting from front");
   return new Promise(async (resolve, reject) => {
     const response = await fetch(
-      `http://localhost:3000/api/v1/carts?userId=${userId}`,
+      `http://localhost:3000/api/v1/carts/${userId}`,
       {
         method: "DELETE",
         headers: { "content-type": "application/json" },

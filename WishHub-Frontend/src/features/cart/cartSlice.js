@@ -3,6 +3,7 @@ import {
   addItem,
   deleteItemFromCart,
   fetchItemsByUserId,
+  resetCart,
   updateCart,
 } from "./cartAPI";
 
@@ -42,7 +43,7 @@ export const deleteItemFromCartAsync = createAsyncThunk(
 export const resetCartAync = createAsyncThunk(
   "/cart/reset",
   async (orderData) => {
-    const response = await fetch(resetCartAync(orderData[0].user));
+    const response = await fetch(resetCart(orderData.user));
     return response.data;
   }
 );

@@ -10,15 +10,15 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrderAsync } from "../order/orderSlice";
 
-
 export default function Cart({ orderData }) {
+  console.log("orderdata", orderData);
   const [open, setOpen] = useState(true);
   const location = useLocation();
   const { pathname } = location;
 
   const dispatch = useDispatch();
   const products = useSelector((store) => store.cart.cartItems);
-  const orderStatus = useSelector((store) => store.order.orderPlaced);
+  const orderStatus = useSelector((store) => store.order.orders);
   const initialValue = 0;
   let totalCost = 0;
   products.forEach((item) => {
@@ -26,7 +26,7 @@ export default function Cart({ orderData }) {
   });
   const navigate = useNavigate();
   useEffect(() => {
-    if (orderStatus) navigate(`/order_success/${orderStatus.id}`);
+    if (orderStatus) navigate(`/order_success/${orderStatus._id}`);
   }, [orderStatus]);
   console.log("Product n cartPage", products);
   return (
@@ -82,7 +82,28 @@ export default function Cart({ orderData }) {
                     return;
                   }
 
-                  dispatch(createOrderAsync({ products, orderData }));
+                  const order = {
+                    items: [],
+                    "address":"",
+                    "totalAmount":"",
+                    "user":"",
+                    "status": "pending",
+                    "paymentMethod":"",
+                  };
+                  products.map((product) => {
+                    order.items.push({
+                      "product": product.product.id,
+                      "quantity": product.quantity,
+                    });
+                  });
+                  order.address = orderData.currentAddress._id;
+                  order.totalAmount = totalCost;
+                  order.user = orderData.user;
+                  order.status = "pending";
+                  order.paymentMethod = orderData.paymentMethod;
+                  console.log("order from fein", order);
+                  // dispatch(createOrderAsync({ products, orderData }));
+                  dispatch(createOrderAsync(order));
                 } else navigate("/checkout");
               }}
             >

@@ -10,15 +10,15 @@ const itemSchema = new mongoose.Schema({
   },
 });
 const OrderScheama = new mongoose.Schema({
-  items: [{ type: itemSchema }],
-  address: { type: String },
+  items: { type: [itemSchema] },
+  address: { type: mongoose.Schema.Types.ObjectId, ref: "Address" },
   totalAmount: { type: Number },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   status: {
     type: String,
     enum: ["pending", "dispatched", "delivered"],
   },
-  paymentMethod: { type: String, enum: ["cash", "card"] },
+  paymentMethod: { type: String, enum: ["Cash", "Card Payment"] },
 });
 
 const Order = new mongoose.model("Order", OrderScheama);

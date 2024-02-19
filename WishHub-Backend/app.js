@@ -19,6 +19,7 @@ const { categoryRouter } = require("./routes/category.routes.js");
 const { brandRouter } = require("./routes/brand.routes.js");
 const { userRouter } = require("./routes/user.routes.js");
 const { cartRouter } = require("./routes/cart.routes.js");
+const { orderRouter } = require("./routes/order.routes.js");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,6 +31,7 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/brands", brandRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/carts", cartRouter);
+app.use("/api/v1/orders", orderRouter);
 
 
 app.post("/test", (req, res) => {

@@ -14,7 +14,7 @@ export const orderSlice = createSlice({
   name: "order",
   initialState: {
     status: "idle",
-    orders: [],
+    orders: null,
     orderPlaced: null,
   },
   reducers: {
@@ -22,6 +22,7 @@ export const orderSlice = createSlice({
       // (state.orders = []), 
         (state.status = "reseted"),
         (state.orderPlaced = null);
+        (state.orders = null)
     },
   },
   extraReducers: (builder) => {
@@ -30,7 +31,7 @@ export const orderSlice = createSlice({
     });
     builder.addCase(createOrderAsync.fulfilled, (state, action) => {
       (state.status = "loaded"),
-        (state.orders = [...state.orders, action.payload]),
+        (state.orders = action.payload),
         (state.orderPlaced = action.payload);
     });
     builder.addCase(createOrderAsync.rejected, (state, action) => {
