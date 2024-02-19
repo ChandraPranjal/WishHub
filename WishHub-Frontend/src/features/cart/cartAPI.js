@@ -1,6 +1,7 @@
 export const addItem = (productInfo) => {
+  // console.log(productInfo);
   return new Promise(async (resolve, reject) => {
-    const response = await fetch("http://localhost:8000/cart", {
+    const response = await fetch("http://localhost:3000/api/v1/carts", {
       method: "POST",
       body: JSON.stringify(productInfo),
       headers: { "content-type": "application/json" },
@@ -13,18 +14,18 @@ export const addItem = (productInfo) => {
 
 export const fetchItemsByUserId = (userId) => {
   return new Promise(async (resolve, reject) => {
-    const response = await fetch(`http://localhost:8000/cart?userId=${userId}`);
+    const response = await fetch(`http://localhost:3000/api/v1/carts?userId=${userId}`);
     const data = await response.json();
     resolve({ data });
   });
 };
 
-export const updateCart = (update) => {
-
+export const updateCart = (updatedDetails) => {
+  console.log(updatedDetails.id);
   return new Promise(async (resolve, reject) => {
-    const response = await fetch(`http://localhost:8000/cart/${+update.id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/carts/${updatedDetails.id}`, {
       method: "PATCH",
-      body: JSON.stringify(update),
+      body: JSON.stringify(updatedDetails),
       headers: { "content-type": "application/json" },
     });
     const data = await response.json();
@@ -34,7 +35,7 @@ export const updateCart = (update) => {
 
 export const deleteItemFromCart = (itemId) => {
   return new Promise(async (resolve, reject) => {
-    const response = await fetch(`http://localhost:8000/cart/${itemId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/carts/${itemId}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     });
@@ -46,7 +47,7 @@ export const deleteItemFromCart = (itemId) => {
 export const resetCart = (userId) => {
   return new Promise(async (resolve, reject) => {
     const response = await fetch(
-      `http://localhost:8000/cart/?userId=${userId}`,
+      `http://localhost:3000/api/v1/carts?userId=${userId}`,
       {
         method: "DELETE",
         headers: { "content-type": "application/json" },

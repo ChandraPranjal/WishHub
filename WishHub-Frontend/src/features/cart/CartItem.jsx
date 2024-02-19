@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteItemFromCartAsync, updateCartAsync } from "./cartSlice";
 
 function CartItem({ product }) {
-
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(product.quantity);
   const quantityHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -19,16 +18,16 @@ function CartItem({ product }) {
     dispatch(deleteItemFromCartAsync(product.id));
   };
   useEffect(() => {
-    const updateObj = {...product};
-    updateObj.quantity = quantity;
-    dispatch(updateCartAsync(updateObj));
+    const updatedDetails = { id: product.id, quantity };
+    console.log("updobj ", updatedDetails);
+    dispatch(updateCartAsync(updatedDetails));
   }, [quantity]);
   return (
     <>
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
         <img
-          src={product.imageSrc}
-          alt={product.imageAlt}
+          src={product.product.imageSrc}
+          alt={product.product.imageAlt}
           className="h-full w-full object-cover object-center"
         />
       </div>
@@ -37,14 +36,14 @@ function CartItem({ product }) {
         <div>
           <div className="flex justify-between text-base font-medium text-gray-900">
             <h3>
-              <a href={product.href}>{product.name}</a>
+              <a href={product.product.href}>{product.product.name}</a>
             </h3>
-            <p className="ml-4">{product.price}</p>
+            <p className="ml-4">{product.product.price}</p>
           </div>
-          <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+          <p className="mt-1 text-sm text-gray-500">{product.product.color}</p>
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
-          <p className="text-gray-500">Qty {quantity}</p>
+          <p className="text-gray-500">Qty {product.quantity}</p>
           <div className="text-xl font-bold flex">
             <button
               name="increment"

@@ -54,7 +54,7 @@ export default function Cart({ orderData }) {
   useEffect(() => {
     if (orderStatus) navigate(`/order_success/${orderStatus.id}`);
   }, [orderStatus]);
-
+  console.log("here proctd" , products);
   return (
     <>
       {!products.length && <Navigate to="/"></Navigate>}
@@ -78,6 +78,7 @@ export default function Cart({ orderData }) {
             <div className="flow-root">
               <ul role="list" className="-my-6 divide-y divide-gray-200">
                 {products.map((product) => {
+                  
                   return (
                     <li key={product.id} className="flex py-6">
                       <CardItem product={product} />

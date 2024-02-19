@@ -18,6 +18,7 @@ const { Test } = require("./models/test.model.js");
 const { categoryRouter } = require("./routes/category.routes.js");
 const { brandRouter } = require("./routes/brand.routes.js");
 const { userRouter } = require("./routes/user.routes.js");
+const { cartRouter } = require("./routes/cart.routes.js");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,6 +29,8 @@ app.use("/api/v1/products", ProductRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/brands", brandRouter);
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/carts", cartRouter);
+
 
 app.post("/test", (req, res) => {
   const test = new Test(req.body);

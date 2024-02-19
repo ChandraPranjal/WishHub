@@ -21,9 +21,14 @@ const generateAccessAndRefreshToken = async (userId) => {
 const createUser = async (req, res) => {
   console.log(req.body);
   try {
-    if (!req.body.email || !req.body.password || !req.body.role)
+    if (
+      !req.body.email ||
+      !req.body.password ||
+      !req.body.role ||
+      !req.body.name
+    )
       throw new Error("All fields are required");
-    const { email, password, role } = req.body;
+    const { email, password, role, name } = req.body;
     const ExistingUser = await User.findOne({ email });
 
     if (ExistingUser) throw new Error("User with same email already Exists");
@@ -33,6 +38,7 @@ const createUser = async (req, res) => {
     // const profilePhoto = await uploadOnCloudiary(profilePhotoLocalPath);
 
     const user = new User({
+      name,
       email,
       password,
       role,
@@ -56,7 +62,6 @@ const createUser = async (req, res) => {
       .cookie("refreshToken", refreshToken, options)
       .cookie("accessToken", accessToken, options);
     res.status(201).json(createdUser);
-
   } catch (err) {
     console.error(err);
     res.status(400).json({ error: err.message });
@@ -154,4 +159,32 @@ const refreshAccessToken = async (req, res) => {
   }
 };
 
-module.exports = { createUser, loginUser, logoutUser, refreshAccessToken };
+const fetchUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const user = await User.findById(id, "name email id");
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
+const updateUserById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByIdAndUpdate(id, req.body, { new: true });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
+module.exports = {
+  createUser,
+  loginUser,
+  logoutUser,
+  refreshAccessToken,
+  fetchUserById,
+  updateUserById,
+};

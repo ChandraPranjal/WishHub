@@ -17,6 +17,7 @@ export const addItemAsync = createAsyncThunk(
 export const fetchItemsByUserIdAsync = createAsyncThunk(
   "/cart/fetchItemsByUserId",
   async (userId) => {
+    console.log("hello");
     const response = await fetchItemsByUserId(userId);
     return response.data;
   }
@@ -24,8 +25,8 @@ export const fetchItemsByUserIdAsync = createAsyncThunk(
 
 export const updateCartAsync = createAsyncThunk(
   "/cart/updateCart",
-  async (id) => {
-    const response = await updateCart(id);
+  async (updatedDetails) => {
+    const response = await updateCart(updatedDetails);
     return response.data;
   }
 );
@@ -57,8 +58,19 @@ export const cartSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(addItemAsync.fulfilled, (state, action) => {
-      (state.status = "loaded"),
-        (state.cartItems = [...state.cartItems, action.payload]);
+      state.status = "loaded";
+      const AlreadyPresentItemIndex = state.cartItems.findIndex((prods) => {
+        if (prods.id === action.payload.id) return true;
+      });
+      console.log(AlreadyPresentItemIndex);
+      if (AlreadyPresentItemIndex !== -1) {
+        const newCart = state.cartItems.map((prod, index) => {
+          if (index === AlreadyPresentItemIndex) return action.payload;
+          else return prod;
+        });
+        console.log(newCart);
+        state.cartItems = newCart;
+      } else state.cartItems = [...state.cartItems, action.payload];
     });
     builder.addCase(addItemAsync.rejected, (state, action) => {
       state.status = "rejected";
@@ -98,15 +110,14 @@ export const cartSlice = createSlice({
       state.status = "rejected";
     });
     builder.addCase(resetCartAync.pending, (state, action) => {
-      state.status = "deleting"
+      state.status = "deleting";
     });
     builder.addCase(resetCartAync.fulfilled, (state, action) => {
-      state.status = "deleted",
-      state.cartItems = [];
+      (state.status = "deleted"), (state.cartItems = []);
     });
-    builder.addCase(resetCartAync.rejected,(state,action)=>{
-      state.status = "rejected"
-    })
+    builder.addCase(resetCartAync.rejected, (state, action) => {
+      state.status = "rejected";
+    });
   },
 });
 
