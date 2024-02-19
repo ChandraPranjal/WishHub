@@ -3,25 +3,27 @@ import { useDispatch } from "react-redux";
 import { deleteItemFromCartAsync, updateCartAsync } from "./cartSlice";
 
 function CartItem({ product }) {
-  const [quantity, setQuantity] = useState(product.quantity);
+  const dispatch = useDispatch();
   const quantityHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    if (e.target.name === "increment") setQuantity(quantity + 1);
-    else setQuantity(quantity - 1 > 0 ? quantity - 1 : 1);
+    if (e.target.name === "increment") {
+      const updatedDetails = { id: product.id, quantity: product.quantity + 1 };
+      dispatch(updateCartAsync(updatedDetails));
+    } else {
+      if (product.quantity === 1) dispatch(deleteItemFromCartAsync(product.id));
+
+      const updatedDetails = { id: product.id, quantity: product.quantity - 1 };
+      dispatch(updateCartAsync(updatedDetails));
+    }
   };
-  const dispatch = useDispatch();
 
   const removeHandler = (e) => {
     e.preventDefault();
     dispatch(deleteItemFromCartAsync(product.id));
   };
-  useEffect(() => {
-    const updatedDetails = { id: product.id, quantity };
-    console.log("updobj ", updatedDetails);
-    dispatch(updateCartAsync(updatedDetails));
-  }, [quantity]);
+
   return (
     <>
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -52,7 +54,7 @@ function CartItem({ product }) {
             >
               +
             </button>
-            {`Qty : ${quantity} `}
+            {`Qty : ${product.quantity} `}
             <button
               name="decrement"
               className="mx-2 text-xl font-bold border border-solid w-5 border-blue-800 shadow-sm shadow-blue-400"

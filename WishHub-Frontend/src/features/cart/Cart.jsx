@@ -10,30 +10,6 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrderAsync } from "../order/orderSlice";
 
-// const products = [
-//   {
-//     id: 1,
-//     name: 'Throwback Hip Bag',
-//     href: '#',
-//     color: 'Salmon',
-//     price: '$90.00',
-//     quantity: 1,
-//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-//     imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-//   },
-//   {
-//     id: 2,
-//     name: 'Medium Stuff Satchel',
-//     href: '#',
-//     color: 'Blue',
-//     price: '$32.00',
-//     quantity: 1,
-//     imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-//     imageAlt:
-//       'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-//   },
-//   // More products...
-// ]
 
 export default function Cart({ orderData }) {
   const [open, setOpen] = useState(true);
@@ -44,17 +20,15 @@ export default function Cart({ orderData }) {
   const products = useSelector((store) => store.cart.cartItems);
   const orderStatus = useSelector((store) => store.order.orderPlaced);
   const initialValue = 0;
-  const totalCost = products.reduce(
-    (accumulator, currentValue) =>
-      accumulator + currentValue.price * currentValue.quantity,
-    initialValue
-  );
-
+  let totalCost = 0;
+  products.forEach((item) => {
+    totalCost += item.product.price * item.quantity;
+  });
   const navigate = useNavigate();
   useEffect(() => {
     if (orderStatus) navigate(`/order_success/${orderStatus.id}`);
   }, [orderStatus]);
-  console.log("here proctd" , products);
+  console.log("Product n cartPage", products);
   return (
     <>
       {!products.length && <Navigate to="/"></Navigate>}
@@ -78,7 +52,6 @@ export default function Cart({ orderData }) {
             <div className="flow-root">
               <ul role="list" className="-my-6 divide-y divide-gray-200">
                 {products.map((product) => {
-                  
                   return (
                     <li key={product.id} className="flex py-6">
                       <CardItem product={product} />
@@ -103,7 +76,6 @@ export default function Cart({ orderData }) {
               to="/checkout"
               className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 cursor-pointer"
               onClick={() => {
-
                 if (pathname === "/checkout") {
                   if (!orderData.currentAddress) {
                     alert("Select Address");

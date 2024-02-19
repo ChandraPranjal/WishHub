@@ -62,13 +62,12 @@ export const cartSlice = createSlice({
       const AlreadyPresentItemIndex = state.cartItems.findIndex((prods) => {
         if (prods.id === action.payload.id) return true;
       });
-      console.log(AlreadyPresentItemIndex);
       if (AlreadyPresentItemIndex !== -1) {
         const newCart = state.cartItems.map((prod, index) => {
           if (index === AlreadyPresentItemIndex) return action.payload;
           else return prod;
         });
-        console.log(newCart);
+        console.log("cartItems " , newCart);
         state.cartItems = newCart;
       } else state.cartItems = [...state.cartItems, action.payload];
     });
