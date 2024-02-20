@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-
 const UserSchema = new mongoose.Schema(
   {
     email: {
@@ -24,6 +23,7 @@ const UserSchema = new mongoose.Schema(
       enum: ["Admin", "Customer"],
       default: "Customer",
     },
+    refreshToken: {},
   },
   {
     toJSON: {

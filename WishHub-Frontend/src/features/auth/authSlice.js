@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { createUser, loginUser } from "./authAPI";
+import { authentication, createUser, loginUser } from "./authAPI";
 
 export const createUserAsync = createAsyncThunk(
   "/user/createUser",
@@ -18,16 +18,28 @@ export const loginUserAsync = createAsyncThunk(
 );
 
 export const signOutAsync = createAsyncThunk("user/signout", async (userId) => {
-  //do something in backend
-  return "success";
+  const response = await fetch("http://localhost:3000/api/v1/users/logout", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    credentials: "include",
+  });
+  const data = await response.json();
+  return data;
 });
-
+export const authenticationAsync = createAsyncThunk(
+  "user/authentication",
+  async () => {
+    const response = await authentication();
+    return response.data;
+  }
+);
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
     status: "idle",
     userToken: null,
     error: null,
+    isChecked: false,
   },
   extraReducers: (builder) => {
     builder.addCase(createUserAsync.pending, (state, action) => {
@@ -36,7 +48,7 @@ export const authSlice = createSlice({
     builder.addCase(createUserAsync.fulfilled, (state, action) => {
       state.status = "loaded";
       //password must not be sent back. Modify it later
-      state.userToken = action.payload;
+      state.userToken = action.payload.id;
     });
     builder.addCase(createUserAsync.rejected, (state, action) => {
       state.status = "rejected";
@@ -64,6 +76,18 @@ export const authSlice = createSlice({
     });
     builder.addCase(signOutAsync.rejected, (state, action) => {
       state.status = "rejected";
+    });
+    builder.addCase(authenticationAsync.pending, (state, action) => {
+      state.status = "loading";
+    });
+    builder.addCase(authenticationAsync.fulfilled, (state, action) => {
+      state.status = "loaded";
+      state.userToken = action.payload;
+      state.isChecked = true;
+    });
+    builder.addCase(authenticationAsync.rejected, (state, action) => {
+      state.status = "rejected";
+      state.isChecked = true;
     });
   },
 });

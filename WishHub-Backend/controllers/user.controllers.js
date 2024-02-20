@@ -183,7 +183,7 @@ const updateUserById = async (req, res) => {
 
 const getContacts = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.user;
     const doc = await Address.find({ userId: id });
     res.status(200).json(doc);
   } catch (error) {
@@ -194,14 +194,22 @@ const getContacts = async (req, res) => {
 
 const createContact = async (req, res) => {
   try {
-    console.log("Here in create", req.body);
-    const { id } = req.params;
     const doc = new Address(req.body);
     const address = await doc.save();
     res.status(201).json(address);
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
+  }
+};
+
+const isAuthenticated = async (req, res) => {
+  try {
+    console.log("IsAuthentication invoked", req.user);
+    res.status(200).json(req.user.id);
+  } catch (error) {
+    console.log(error);
+    res.status(403).json(error);
   }
 };
 
@@ -214,4 +222,5 @@ module.exports = {
   updateUserById,
   getContacts,
   createContact,
+  isAuthenticated,
 };

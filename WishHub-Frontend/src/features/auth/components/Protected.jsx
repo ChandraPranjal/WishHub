@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
 
 function Protected({ children }) {
-  const data =
-    useSelector((store) => store.auth.userToken) ||
-    localStorage.getItem('isLoggedIn');
+  const data = useSelector((store) => store.auth.userToken);
   const navigate = useNavigate();
   useEffect(() => {
     if (!data) {

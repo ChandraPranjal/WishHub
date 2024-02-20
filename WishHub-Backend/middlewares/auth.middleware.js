@@ -3,7 +3,6 @@ const { User } = require("../models/user.model");
 
 const verifyJWT = async (req, res, next) => {
   try {
-
     // console.log( req.cookies.accessToken );
     const token =
       req.cookies?.accessToken ||
@@ -23,7 +22,7 @@ const verifyJWT = async (req, res, next) => {
     next();
   } catch (error) {
     console.log(error);
-    throw new Error("Invalid Access Token");
+    res.status(401).json("Invalid Access Token");
   }
 };
 

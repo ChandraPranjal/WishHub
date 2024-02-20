@@ -7,6 +7,7 @@ const {
   refreshAccessToken,
   getContacts,
   createContact,
+  isAuthenticated,
 } = require("../controllers/user.controllers");
 const { verifyJWT } = require("../middlewares/auth.middleware");
 
@@ -17,8 +18,9 @@ userRouter.route("/register").post(createUser);
 userRouter.route("/login").post(loginUser);
 userRouter.route("/logout").post(verifyJWT, logoutUser);
 userRouter.route("/refresh-token").post(refreshAccessToken);
-userRouter.route("/contacts/:id").get( getContacts);
-userRouter.route("/contacts/:id").post(createContact);
+userRouter.route("/authenticated").get(verifyJWT,isAuthenticated);
+userRouter.route("/contacts").get(verifyJWT, getContacts);
+userRouter.route("/contacts").post(verifyJWT, createContact);
 
 module.exports = { userRouter };
 

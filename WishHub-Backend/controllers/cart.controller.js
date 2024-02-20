@@ -1,5 +1,5 @@
 const { Cart } = require("../models/cart.model");
-
+const jwt = require("jsonwebtoken");
 const addItem = async (req, res) => {
   try {
     console.log(req.body);
@@ -31,8 +31,7 @@ const addItem = async (req, res) => {
 
 const fetchItemsByUserId = async (req, res) => {
   try {
-    const { userId } = req.query;
-
+    const userId = req.user.id;
     const doc = await Cart.find({ user: userId })
       .populate("product")
       .populate("user");
@@ -67,8 +66,8 @@ const deleteItemFromCart = async (req, res) => {
 const resetCart = async (req, res) => {
   console.log("resetting");
   try {
-    const { id } = req.params;
-    const doc = await Cart.deleteOne({ user: id });
+    const id = req.user.id;
+    const doc = await Cart.deleteMany({ user: id });
     console.log(doc);
     res.status(200).json(doc);
   } catch (error) {

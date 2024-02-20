@@ -11,7 +11,6 @@ export const createUser = (userData) => {
     );
     const data = await response.json();
     if (response.ok) {
-      localStorage.setItem("isLoggedIn", true);
       resolve({ data });
     } else {
       // console.log("Eroror is", error);
@@ -30,7 +29,23 @@ export const loginUser = (userData) => {
     });
     if (response.ok) {
       const data = await response.json();
-      localStorage.setItem("isLoggedIn", true);
+      resolve({ data });
+    } else {
+      reject({ message: "Auth failed" });
+    }
+  });
+};
+
+export const authentication = () => {
+  return new Promise(async (resolve, reject) => {
+    const response = await fetch(
+      `http://localhost:3000/api/v1/users/authenticated`,
+      {
+        credentials: "include",
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
       resolve({ data });
     } else {
       reject({ message: "Auth failed" });

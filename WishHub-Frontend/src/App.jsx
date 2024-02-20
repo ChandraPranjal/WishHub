@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Route,
   RouterProvider,
@@ -16,6 +16,8 @@ import Protected from "./features/auth/components/Protected";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import UserOrderPage from "./pages/UserOrderPage";
 import Signout from "./features/signout/Signout";
+import { useDispatch, useSelector } from "react-redux";
+import { authenticationAsync } from "./features/auth/authSlice";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -84,7 +86,13 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
-}
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authenticationAsync());
+  }, []);
 
+  const isChecked = useSelector((state) => state.auth.isChecked); // Assuming isChecked is stored in the Redux state
+
+  return isChecked && <RouterProvider router={router} />;
+}
 export default App;

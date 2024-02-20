@@ -3,7 +3,9 @@ export const createOrder= (orderData)=>{
         const response = await fetch('http://localhost:3000/api/v1/orders',{
             method:"POST",
             body : JSON.stringify(orderData),
-            headers:{'content-type':'application/json'}
+            headers:{'content-type':'application/json'},
+            credentials:'include'
+
         })
         const data = await response.json();
         resolve({data});

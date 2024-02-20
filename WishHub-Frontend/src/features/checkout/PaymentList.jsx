@@ -4,9 +4,6 @@ import { useSelector } from "react-redux";
 
 
 export default function PaymentList({paymentOptions,paymentMethod, setPaymentMethod}) {
-  console.log("Payment Refreshed");
-
-
   return (
     <ul role="list" className="divide-y divide-gray-100">
       {paymentOptions.map((payment,index) => (

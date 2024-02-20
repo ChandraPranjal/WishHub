@@ -18,7 +18,7 @@ export const addItemAsync = createAsyncThunk(
 export const fetchItemsByUserIdAsync = createAsyncThunk(
   "/cart/fetchItemsByUserId",
   async (userId) => {
-    console.log("hello");
+
     const response = await fetchItemsByUserId(userId);
     return response.data;
   }
@@ -59,19 +59,18 @@ export const cartSlice = createSlice({
       state.status = "loading";
     });
     builder.addCase(addItemAsync.fulfilled, (state, action) => {
-      console.log("payload is " , action.payload);
+
       state.status = "loaded";
 
       const AlreadyPresentItemIndex = state.cartItems.findIndex((prods) => {
         if (prods.product.id === action.payload.product.id) return true;
       });
-      console.log(AlreadyPresentItemIndex);
+
       if (AlreadyPresentItemIndex !== -1) {
         const newCart = state.cartItems.map((prod, index) => {
           if (index === AlreadyPresentItemIndex) return action.payload;
           else return prod;
         });
-        console.log("cartItems " , newCart);
         state.cartItems = newCart;
       } else state.cartItems = [...state.cartItems, action.payload];
     });

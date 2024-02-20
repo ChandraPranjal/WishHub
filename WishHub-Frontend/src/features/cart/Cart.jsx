@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { createOrderAsync } from "../order/orderSlice";
 
 export default function Cart({ orderData }) {
-  console.log("orderdata", orderData);
   const [open, setOpen] = useState(true);
   const location = useLocation();
   const { pathname } = location;
@@ -28,7 +27,7 @@ export default function Cart({ orderData }) {
   useEffect(() => {
     if (orderStatus) navigate(`/order_success/${orderStatus._id}`);
   }, [orderStatus]);
-  console.log("Product n cartPage", products);
+
   return (
     <>
       {!products.length && <Navigate to="/"></Navigate>}
@@ -84,16 +83,16 @@ export default function Cart({ orderData }) {
 
                   const order = {
                     items: [],
-                    "address":"",
-                    "totalAmount":"",
-                    "user":"",
-                    "status": "pending",
-                    "paymentMethod":"",
+                    address: "",
+                    totalAmount: "",
+                    user: "",
+                    status: "pending",
+                    paymentMethod: "",
                   };
                   products.map((product) => {
                     order.items.push({
-                      "product": product.product.id,
-                      "quantity": product.quantity,
+                      product: product.product.id,
+                      quantity: product.quantity,
                     });
                   });
                   order.address = orderData.currentAddress._id;
@@ -101,7 +100,7 @@ export default function Cart({ orderData }) {
                   order.user = orderData.user;
                   order.status = "pending";
                   order.paymentMethod = orderData.paymentMethod;
-                  console.log("order from fein", order);
+
                   // dispatch(createOrderAsync({ products, orderData }));
                   dispatch(createOrderAsync(order));
                 } else navigate("/checkout");

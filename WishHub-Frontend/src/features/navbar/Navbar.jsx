@@ -24,12 +24,10 @@ export default function Navbar({ children }) {
   const dispatch = useDispatch();
   const userId = useSelector((store) => store.auth.userToken);
   useEffect(() => {
-    console.log("userId", userId);
     dispatch(fetchItemsByUserIdAsync(userId));
-    console.log("CrdItems" ,CartItems , "CardItems.length" , CartItems.length);
   }, []);
   return (
-    <div className="min-h-full">
+    <div className="min-h-full w-full ">
       <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
           <>

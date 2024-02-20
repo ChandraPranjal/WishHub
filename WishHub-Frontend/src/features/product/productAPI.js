@@ -6,8 +6,6 @@
 //   });
 // }
 
-
-
 export function fetchAllProducts({ filter, sort, page }) {
   //filter = {
   //              category:["smartphone" , "laptop"] ,
@@ -45,7 +43,7 @@ export function fetchAllProducts({ filter, sort, page }) {
   // }
   console.log(query);
   return new Promise(async (resolve, reject) => {
-    const response = await fetch(query);
+    const response = await fetch(query, { credentials: "include" });
     const data = await response.json();
     const totalItems = response.headers.get("X-Total-Count");
     // console.log("totalItems" , totalItems);
@@ -55,7 +53,10 @@ export function fetchAllProducts({ filter, sort, page }) {
 
 export const fetchProductById = (id) => {
   return new Promise(async (resolve, reject) => {
-    const response = await fetch(`http://localhost:3000/api/v1/products/${id}`);
+    const response = await fetch(
+      `http://localhost:3000/api/v1/products/${id}`,
+      { credentials: "include" }
+    );
     const data = await response.json();
     resolve({ data });
   });
